@@ -1,0 +1,65 @@
+body {
+    background-color: #27354b;
+    margin: 0;
+    padding: 0;
+    background-image: url("giphy.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+h1 {
+    color: #b0d2ff;
+    text-align: center;
+}
+button {
+    background-color: #3e5588;
+    color: rgb(198, 199, 206);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    text-align: center;
+}
+button:hover {
+    background-color: #4c5463;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 700px;
+    display: none;
+    text-align: center;
+}
+th, td {
+    border: 1px solid #5f6e99;
+    padding: 8px;
+    text-align: center;
+    position: relative;
+}
+th {
+    background-color: #5272af;
+    color: #a1a1a1;
+}
+tr:nth-child(even) {
+    background-color: #5f6e99;
+}
+tr:nth-child(odd) {
+    background-color: #657dbe;
+}
+tr:hover {
+    background-color: #ddd;
+}
+h5 {
+    padding: 5px;
+    background-color: #52618d;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+}

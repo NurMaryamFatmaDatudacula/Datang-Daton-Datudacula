@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href = "dat3.css" rel = "stylesheet" type = "text/css">
+</head>
+<body>
+    <h5>
+        <p>Al-nur Rajihi P. Datang     ~     Khamylle Xenia Daton     ~     Nur Maryam Fatma M. Datudacula</P>
+    </h5>
+    <div id="container"> 
+        <h1>Simple Inventory System</h1>
+        <button onclick="addItem()">Add Item</button>
+        <button onclick="addNoOfItem()">Add Supply</button>
+        <button onclick="subNoOfItem()">Delete Supply</button>
+        <button onclick="removeItem()">Delete Item</button>
+        <button onclick="displayItems()">Display Supply</button>
+
+        <table id="inventoryTable">
+            <tr>
+                <th>ITEMS</th>
+                <th>SUPPLY</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var supply = [];
+        var table = document.getElementById("inventoryTable");
+
+        function addItem() {
+            var name = prompt("Enter the item you want to add to the supply").toLowerCase();
+            var num = parseInt(prompt("Enter how many of " + name + " you want to add"));
+            supply.push({ itemName: name, itemStock: num });
+            displayItems();
+        }
+
+        function addNoOfItem() {
+            var itemname = prompt("Enter the item you want to add stocks to").toLowerCase();
+            var stock = parseInt(prompt("Enter how many stocks you want to add"));
+            for (var i = 0; i < supply.length; i++) {
+                if (supply[i].itemName === itemname) {
+                    supply[i].itemStock += stock;
+                    break;
+                }
+            }
+            displayItems();
+        }
+
+        function subNoOfItem() {
+            var itemname = prompt("Enter the item you want to delete stocks from").toLowerCase();
+            var stock = parseInt(prompt("Enter how many stocks you want to delete"));
+            for (var i = 0; i < supply.length; i++) {
+                if (supply[i].itemName === itemname) {
+                    supply[i].itemStock -= stock;
+                    if (supply[i].itemStock < 0) supply[i].itemStock = 0;
+                    break;
+                }
+            }
+            displayItems();
+        }
+
+        function removeItem() {
+            var itemName = prompt("Enter the item you want to remove from the supply").toLowerCase();
+            for (var i = 0; i < supply.length; i++) {
+                if (supply[i].itemName === itemName) {
+                    supply.splice(i, 1);
+                    break;
+                }
+            }
+            displayItems();
+        }
+
+        function displayItems() {
+            table.style.display = "block";
+            table.innerHTML = "";
+            var headerRow = table.insertRow(0);
+            var headerCell1 = headerRow.insertCell(0);
+            var headerCell2 = headerRow.insertCell(1);
+            headerCell1.innerHTML = "<b>ITEMS</b>";
+            headerCell2.innerHTML = "<b>SUPPLY</b>";
+            for (var i = 0; i < supply.length; i++) {
+                var row = table.insertRow(i + 1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                cell1.innerHTML = supply[i].itemName;
+                cell2.innerHTML = supply[i].itemStock;
+            }
+        }
+    </script>
+</body>
+</html>
